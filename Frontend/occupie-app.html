@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OccuPie - Condo Prediction App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="occupie-navbar">
+        <div class="occupie-nav-logo"></div>
+        <ul class="occupie-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#tech-stack">Tech Stack</a></li>
+            <li><a href="#developers">Developers</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="occupie-container">
+        <!-- Content Wrapper -->
+        <div class="occupie-content-wrapper">
+            <!-- Top Line Separator -->
+            <div class="occupie-line-separator">
+                <img src="Resources/9bd12120df666e65aca572002fad4b4244a30b88.svg" alt="Line separator">
+            </div>
+
+            <!-- Main Page Section -->
+            <section class="occupie-main-page">
+                <!-- Page Title -->
+                <div class="occupie-page-title">
+                    <h1>Pin and Begin, Let the Slice Spin</h1>
+                    <p>Type it in, place it on the map, and get your slice of insights.</p>
+                </div>
+
+                <!-- User Input Panel -->
+                <div class="occupie-user-input">
+                    <!-- Property Details Section -->
+                    <div class="occupie-property-section">
+                        <div class="occupie-section-header">
+                            <img src="Resources/095247af758cc682d52501f3e03d6f87654b51e5.svg" alt="Property icon">
+                            <h3>Property Details</h3>
+                        </div>
+                        
+                        <div class="occupie-form-group">
+                            <label>Condo Name:</label>
+                            <div class="occupie-input-wrapper">
+                                <input type="text" value="Sentinel Residence" readonly>
+                            </div>
+                        </div>
+
+                        <div class="occupie-form-group">
+                            <label>Neighborhood:</label>
+                            <div class="occupie-input-wrapper occupie-dropdown">
+                                <input type="text" value="Cubao" readonly>
+                                <img src="Resources/7375c3f9a73d28dc78845794924706a1ee14c6dd.svg" alt="Dropdown arrow" class="occupie-dropdown-arrow">
+                            </div>
+                        </div>
+
+                        <div class="occupie-form-group">
+                            <label>Furnishing:</label>
+                            <div class="occupie-input-wrapper occupie-dropdown">
+                                <input type="text" value="Unfurnished" readonly>
+                                <img src="Resources/7375c3f9a73d28dc78845794924706a1ee14c6dd.svg" alt="Dropdown arrow" class="occupie-dropdown-arrow">
+                            </div>
+                        </div>
+
+                        <div class="occupie-form-group">
+                            <label>Size (sqm):</label>
+                            <div class="occupie-input-wrapper">
+                                <input type="text" value="25" readonly>
+                            </div>
+                        </div>
+
+                        <div class="occupie-form-row">
+                            <div class="occupie-form-group occupie-half-width">
+                                <label>Bedrooms:</label>
+                                <div class="occupie-input-wrapper">
+                                    <input type="text" value="2" readonly>
+                                </div>
+                            </div>
+                            <div class="occupie-form-group occupie-half-width">
+                                <label>Bathrooms:</label>
+                                <div class="occupie-input-wrapper">
+                                    <input type="text" value="1" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amenities Section -->
+                    <div class="occupie-amenities-section">
+                        <div class="occupie-section-header">
+                            <img src="Resources/444cfc2b90dae13273837293a5ff35fa575a0ed4.svg" alt="Amenities icon">
+                            <h3>Amenities</h3>
+                        </div>
+                        
+                        <div class="occupie-amenities-grid">
+                            <div class="occupie-amenities-column">
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Security</span>
+                                </div>
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>AC Unit</span>
+                                </div>
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Parking</span>
+                                </div>
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Balcony</span>
+                                </div>
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Study Hall</span>
+                                </div>
+                            </div>
+                            <div class="occupie-amenities-column">
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Pool</span>
+                                </div>
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Event Space</span>
+                                </div>
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Func. Room</span>
+                                </div>
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Gym</span>
+                                </div>
+                                <div class="occupie-checkbox-item">
+                                    <img src="Resources/1c158afc4b2198fe677b9aca2c327d5abb1d05bf.svg" alt="Checkbox">
+                                    <span>Concierge</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluate Button -->
+                    <button class="occupie-evaluate-btn">Evaluate</button>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="occupie-map-placeholder"></div>
+            </section>
+
+            <!-- Analysis Section -->
+            <section class="occupie-analysis-section">
+                <!-- Prediction Cards -->
+                <div class="occupie-predictions">
+                    <div class="occupie-prediction-card occupie-price-card">
+                        <h3>Estimated Monthly Rental</h3>
+                        <div class="occupie-prediction-value">Php. 0.00</div>
+                        <p>Based on location, amenities, nearby establishments analysis, and competitor analysis</p>
+                    </div>
+                    <div class="occupie-prediction-card occupie-demand-card">
+                        <h3>Occupancy Demand</h3>
+                        <div class="occupie-prediction-value">Demand</div>
+                        <p>Based on price, rental trends, amenities, seasonality, and nearby establishments analysis</p>
+                    </div>
+                </div>
+
+                <!-- Nearby Stats -->
+                <div class="occupie-nearby-stats">
+                    <div class="occupie-stat-card">
+                        <img src="Resources/642beff26199d1dab3b779585f89ee60974eb474.svg" alt="Education icon" class="occupie-stat-icon">
+                        <div class="occupie-stat-content">
+                            <h4>Education</h4>
+                            <div class="occupie-stat-number">0</div>
+                            <p>Schools Nearby</p>
+                        </div>
+                    </div>
+                    <div class="occupie-stat-card">
+                        <img src="Resources/d13a4b07d22bd1141b1bd46c2a62cdf5e7d0ab66.svg" alt="Shopping icon" class="occupie-stat-icon">
+                        <div class="occupie-stat-content">
+                            <h4>Shopping</h4>
+                            <div class="occupie-stat-number">0</div>
+                            <p>Malls & Stores</p>
+                        </div>
+                    </div>
+                    <div class="occupie-stat-card">
+                        <img src="Resources/9058d63acf29fb9265871e62e6b608b97809e315.svg" alt="Transportation icon" class="occupie-stat-icon">
+                        <div class="occupie-stat-content">
+                            <h4>Transportation</h4>
+                            <div class="occupie-stat-number">0</div>
+                            <p>Transit Options</p>
+                        </div>
+                    </div>
+                    <div class="occupie-stat-card">
+                        <img src="Resources/83a09d5c757288163ca7f19e41ca43a7e91cac2d.svg" alt="Healthcare icon" class="occupie-stat-icon">
+                        <div class="occupie-stat-content">
+                            <h4>Healthcare</h4>
+                            <div class="occupie-stat-number">0</div>
+                            <p>Medical Facilities</p>
+                        </div>
+                    </div>
+                    <div class="occupie-stat-card">
+                        <img src="Resources/d3826ae0a5fdd39863ab717438aa346babd53ccc.svg" alt="Restaurant icon" class="occupie-stat-icon">
+                        <div class="occupie-stat-content">
+                            <h4>Restaurant</h4>
+                            <div class="occupie-stat-number">0</div>
+                            <p>Dining Options</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Text -->
+                <div class="occupie-analysis-text">
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent taciti sociosqu ad litora. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Dis parturient montes nascetur ridiculus mus donec rhoncus. Nulla molestie mattis scelerisque maximus eget fermentum odio. Purus est efficitur laoreet mauris pharetra vestibulum fusce.Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent taciti sociosqu ad litora. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Dis parturient montes nascetur ridiculus mus donec rhoncus. Nulla molestie mattis scelerisque maximus eget fermentum odio. Purus est efficitur laoreet mauris pharetra vestibulum fusce.Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent taciti sociosqu ad litora. Conubia nostra inceptos himenaeos orci varius natoque penatibus.</p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="occupie-footer">
+                <div class="occupie-footer-content">
+                    <div class="occupie-footer-logo-section">
+                        <div class="occupie-footer-logo"></div>
+                        <p class="occupie-footer-description">
+                            Thanks for taking a slice of OccuPie! We hope our predictions left you full of insights, not just data.
+                        </p>
+                        <p class="occupie-footer-copyright">
+                            OccuPie © 2025 — Serving smarter condo insights.
+                        </p>
+                    </div>
+                    <div class="occupie-footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#tech-stack">Tech Stack</a></li>
+                            <li><a href="#developers">Developers</a></li>
+                        </ul>
+                    </div>
+                    <div class="occupie-footer-section">
+                        <h4>Follow Us</h4>
+                        <ul>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">X/Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
