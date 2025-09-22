@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OccuPie - Condo Price Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fcfeff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #fcfeff;
+            height: 100px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 122px;
+        }
+
+        .navbar .logo {
+            width: 189px;
+            height: 50px;
+            background: url('Resources/da4ab866af980961a7d21149cd7a7423fa2f446c.png') center/cover no-repeat;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #010219;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .navbar .cta-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 30px;
+            background: linear-gradient(135deg, #4279f6, #42a5f5);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fcfeff;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .navbar .cta-button .logo-small {
+            width: 28px;
+            height: 30px;
+            background: url('Resources/1af4e2c82ff582e7b4e1bfdd682360834c60cf68.png') center/cover no-repeat;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 120px;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 924px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-tagline {
+            position: relative;
+            z-index: 2;
+            margin-top: 40px;
+        }
+
+        .hero-tagline .main-text {
+            font-size: 75px;
+            font-weight: 600;
+            color: #010219;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-tagline .logo-pie {
+            width: 87.5px;
+            height: 88.722px;
+            background: url('Resources/3c2a8d84297973d9d58c5be9af4cab07c3f7f183.png') center/cover no-repeat;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .hero-tagline .gradient-text {
+            background: linear-gradient(135deg, #4279f6, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 24px;
+            color: #6d6d6d;
+            max-width: 1035px;
+            margin: 40px auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-building {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 719px;
+            background: url('Resources/d4e4495fa6525fb60299fee41557125b4cd731e3.png') bottom/cover no-repeat;
+        }
+
+        .hero-gradient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 253px;
+            background: linear-gradient(to bottom, rgba(252, 254, 255, 0), #fcfeff);
+        }
+
+        /* Features Section */
+        .features-section {
+            background-color: #fcfeff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .features-title {
+            font-size: 40px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #4279f6, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+        }
+
+        .features-description {
+            font-size: 24px;
+            color: #6d6d6d;
+            max-width: 1035px;
+            margin: 0 auto 80px;
+        }
+
+        .features-cards {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #4279f6, #42a5f5);
+            border-radius: 20px;
+            padding: 30px;
+            width: 330px;
+            box-shadow: 5px 5px 10px 0px rgba(66, 121, 246, 0.5);
+        }
+
+        .feature-card .icon {
+            width: 50px;
+            height: 44px;
+            margin-bottom: 25px;
+        }
+
+        .feature-card .icon-1 {
+            background: url('Resources/c431bc7a358ca81976fdac0e9b4a28bbb7a5c836.svg') center/contain no-repeat;
+        }
+
+        .feature-card .icon-2 {
+            background: url('Resources/f18600157ca1747d3089c9f7e634553fcbc577e8.svg') center/contain no-repeat;
+        }
+
+        .feature-card .icon-3 {
+            background: url('Resources/cc7feab489250ced3bea8d66e641602bef009cb0.svg') center/contain no-repeat;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fcfeff;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .feature-card p {
+            font-size: 18px;
+            color: #d6d6d6;
+            line-height: 1.4;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack-section {
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+            background-color: #fcfeff;
+        }
+
+        .tech-stack-scroll {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            display: flex;
+            align-items: center;
+            gap: 100px;
+            animation: scroll 30s linear infinite;
+            padding: 0 100px;
+        }
+
+        .tech-stack-scroll img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* UI Preview Section */
+        .ui-preview-section {
+            background-color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .ui-preview-title {
+            font-size: 40px;
+            font-weight: 600;
+            color: #010219;
+            margin-bottom: 30px;
+        }
+
+        .ui-preview-description {
+            font-size: 24px;
+            color: #6d6d6d;
+            max-width: 1035px;
+            margin: 0 auto 80px;
+        }
+
+        .ui-preview-gallery {
+            position: relative;
+            height: 498px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .ui-preview-item {
+            position: absolute;
+            border: 3px solid #4279f6;
+            border-radius: 30px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .ui-preview-item:nth-child(1) {
+            left: 0;
+            top: 0;
+            width: 700px;
+            height: 498px;
+        }
+
+        .ui-preview-item:nth-child(2) {
+            left: 370px;
+            top: -75px;
+            width: 699.892px;
+            height: 498px;
+            border-radius: 20px;
+        }
+
+        .ui-preview-item:nth-child(3) {
+            right: 0;
+            top: 0;
+            width: 700px;
+            height: 497px;
+        }
+
+        .ui-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Developers Section */
+        .developers-section {
+            background-color: #fcfeff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .developers-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('Resources/0cf5a680c6e15646507555613d2a37030e49210a.png') center/cover no-repeat;
+            opacity: 0.75;
+            mix-blend-mode: soft-light;
+        }
+
+        .developers-title {
+            font-size: 40px;
+            font-weight: 600;
+            color: #010219;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .developers-description {
+            font-size: 24px;
+            color: #6d6d6d;
+            max-width: 1035px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .developers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1180px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .developer-card {
+            background: #fcfeff;
+            border-radius: 30px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .developer-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .developer-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .developer-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .developer-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #010219;
+            margin-bottom: 5px;
+        }
+
+        .developer-info .role {
+            font-size: 20px;
+            color: #4279f6;
+            margin-bottom: 10px;
+        }
+
+        .developer-info .description {
+            font-size: 16px;
+            color: #6d6d6d;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .developer-socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #4279f6;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+
+        .social-icon.github {
+            mask-image: url('Resources/25d9db5629f319a83f760790b86198879d0af8b3.png');
+        }
+
+        .social-icon.linkedin {
+            mask-image: url('Resources/1420556c79f9b0a2c528ffd50ca3ee5bbf185b11.png');
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #4279f6, #42a5f5);
+            padding: 50px 122px;
+            color: white;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-logo-section {
+            max-width: 345px;
+        }
+
+        .footer-logo {
+            width: 144px;
+            height: 31px;
+            background: url('Resources/da4ab866af980961a7d21149cd7a7423fa2f446c.png') center/cover no-repeat;
+            margin-bottom: 15px;
+        }
+
+        .footer-description {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .footer-copyright {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .footer-section h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .navbar {
+                padding: 0 50px;
+            }
+            
+            .features-cards {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            
+            .developers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer {
+                padding: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+                flex-direction: column;
+                height: auto;
+                padding: 10px 20px;
+            }
+            
+            .navbar .nav-links {
+                gap: 15px;
+                margin: 10px 0;
+            }
+            
+            .navbar .nav-links a {
+                font-size: 18px;
+            }
+            
+            .main-content {
+                padding-top: 160px;
+            }
+            
+            .hero-tagline .main-text {
+                font-size: 48px;
+            }
+            
+            .hero-description {
+                font-size: 18px;
+                padding: 0 20px;
+            }
+            
+            .features-cards {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 20px;
+            }
+            
+            .ui-preview-gallery {
+                height: auto;
+                padding: 0 20px;
+            }
+            
+            .ui-preview-item {
+                position: relative !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                width: 100% !important;
+                margin-bottom: 20px;
+            }
+            
+            .developer-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .developer-info {
+                text-align: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo"></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#tech-stack">User Interface</a></li>
+            <li><a href="#developers">Developers</a></li>
+        </ul>
+        <a href="#" class="cta-button">
+            <div class="logo-small"></div>
+            Try OccuPie
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section id="home" class="hero-section">
+                <div class="hero-tagline">
+                    <h1 class="main-text">
+                        <span class="logo-pie"></span><span class="gradient-text">ccupancy</span> demand<br>
+                        just got predictable
+                    </h1>
+                </div>
+                <p class="hero-description">
+                    Behind the scenes, OccuPie applies Multiple Linear Regression to estimate condo pricing and Logistic Regression to predict occupancy demand trends
+                </p>
+                <div class="hero-building"></div>
+                <div class="hero-gradient-overlay"></div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="features-section">
+                <h2 class="features-title">What We Cooked Inside OccuPie</h2>
+                <p class="features-description">
+                    OccuPie isn't just a tasty name—it's packed with features that make condo predictions smarter, clearer, and a whole lot more fun.
+                </p>
+                <div class="features-cards">
+                    <div class="feature-card">
+                        <div class="icon icon-1"></div>
+                        <h3>Find Your Slice<br>on the Map</h3>
+                        <p>Type in a condo, and OccuPie serves up its location along with nearby establishments—so you see not just the unit, but the community around it.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon icon-2"></div>
+                        <h3>Slice the Numbers<br>with AI</h3>
+                        <p>Using MLR for condo pricing and Logistic Regression for occupancy demand, OccuPie turns raw data into clear, reliable predictions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon icon-3"></div>
+                        <h3>A Bigger Bite<br>with LLMs</h3>
+                        <p>Beyond numbers, OccuPie uses language models to analyze and explain results—making insights easy to understand, even without a math degree.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack Section -->
+            <section id="tech-stack" class="tech-stack-section">
+                <div class="tech-stack-scroll">
+                    <img src="Resources/fdd7dca873d4830e7158e4783065d0dc00ed7fb7.png" alt="VS Code">
+                    <img src="Resources/0a69c79c2d06499ba558b1d017471a635fd93b44.png" alt="Python">
+                    <img src="Resources/d6dbb6f8c9a46760509828b36586f6e4fcf27581.png" alt="Figma">
+                    <img src="Resources/5c80419c2d12b3404dedb4136372f9a28b6337ce.png" alt="Google Maps">
+                    <img src="Resources/feb577b2b34574d4386ad34b63b75d5b98c00441.png" alt="HTML">
+                    <img src="Resources/8ed8569eb50bff03b1515cb1952e57c5d487ecc6.png" alt="CSS">
+                    <img src="Resources/fdd7dca873d4830e7158e4783065d0dc00ed7fb7.png" alt="VS Code">
+                    <img src="Resources/0a69c79c2d06499ba558b1d017471a635fd93b44.png" alt="Python">
+                    <img src="Resources/d6dbb6f8c9a46760509828b36586f6e4fcf27581.png" alt="Figma">
+                    <img src="Resources/5c80419c2d12b3404dedb4136372f9a28b6337ce.png" alt="Google Maps">
+                    <img src="Resources/feb577b2b34574d4386ad34b63b75d5b98c00441.png" alt="HTML">
+                    <img src="Resources/8ed8569eb50bff03b1515cb1952e57c5d487ecc6.png" alt="CSS">
+                </div>
+            </section>
+
+            <!-- UI Preview Section -->
+            <section class="ui-preview-section">
+                <h2 class="ui-preview-title">Have a Taste of the UI</h2>
+                <p class="ui-preview-description">
+                    Here's a first look at what we've been baking inside OccuPie. From maps to predictions, get a taste of the UI before you dig in.
+                </p>
+                <div class="ui-preview-gallery">
+                    <div class="ui-preview-item">
+                        <img src="Resources/06e4023f7d6b82ae3b6046d34220f09fa445a391.png" alt="OccuPie UI Preview 1">
+                    </div>
+                    <div class="ui-preview-item">
+                        <img src="Resources/06e4023f7d6b82ae3b6046d34220f09fa445a391.png" alt="OccuPie UI Preview 2">
+                    </div>
+                    <div class="ui-preview-item">
+                        <img src="Resources/03449d82b448b49a5853a30cb9fdb96e7dd266b4.png" alt="OccuPie UI Preview 3">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Developers Section -->
+            <section id="developers" class="developers-section">
+                <div class="developers-bg"></div>
+                <h2 class="developers-title">Meet the Pie-oneers</h2>
+                <p class="developers-description">
+                    Our secret recipe? A generous scoop of regression models, a handful of creativity, and a sprinkle of teamwork. Together, we cooked up OccuPie.
+                </p>
+                <div class="developers-grid">
+                    <div class="developer-card">
+                        <div class="developer-photo">
+                            <img src="Resources/b1639b74134b4d4b22cc7061df1a60d516484dda.png" alt="Kurt Justine Almadrones">
+                        </div>
+                        <div class="developer-info">
+                            <h3>Kurt Justine Almadrones</h3>
+                            <div class="role">Role | Role | Role</div>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                            <div class="developer-socials">
+                                <div class="social-icon github"></div>
+                                <div class="social-icon linkedin"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="developer-card">
+                        <div class="developer-photo">
+                            <img src="Resources/e37793ddc37e020cdc7e1e1d6e72173b5e11b04f.png" alt="Lance Kenneth Dela Paz">
+                        </div>
+                        <div class="developer-info">
+                            <h3>Lance Kenneth Dela Paz</h3>
+                            <div class="role">Role | Role | Role</div>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                            <div class="developer-socials">
+                                <div class="social-icon github"></div>
+                                <div class="social-icon linkedin"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="developer-card">
+                        <div class="developer-photo">
+                            <img src="Resources/c5542fc54b71119a4eaad84eab3ab3e8a67dcbd1.png" alt="Leon Marco Devela">
+                        </div>
+                        <div class="developer-info">
+                            <h3>Leon Marco Devela</h3>
+                            <div class="role">Role | Role | Role</div>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                            <div class="developer-socials">
+                                <div class="social-icon github"></div>
+                                <div class="social-icon linkedin"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="developer-card">
+                        <div class="developer-photo">
+                            <img src="Resources/a4873134800e87560a5d4c00bfebff964b64b40b.png" alt="Rae Paulos">
+                        </div>
+                        <div class="developer-info">
+                            <h3>Rae Paulos</h3>
+                            <div class="role">Role | Role | Role</div>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.</p>
+                            <div class="developer-socials">
+                                <div class="social-icon github"></div>
+                                <div class="social-icon linkedin"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo-section">
+                    <div class="footer-logo"></div>
+                    <p class="footer-description">
+                        Thanks for taking a slice of OccuPie! We hope our predictions left you full of insights, not just data.
+                    </p>
+                    <p class="footer-copyright">
+                        OccuPie © 2025 — Serving smarter condo insights.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#tech-stack">Tech Stack</a></li>
+                        <li><a href="#developers">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">X/Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
